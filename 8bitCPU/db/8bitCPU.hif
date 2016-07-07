@@ -1,0 +1,439 @@
+Version 5.0 Build 148 04/26/2005 SJ Full Version
+32
+1614
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+VRSM_ON
+VHSM_ON
+0
+# entity
+pc
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+pc.vhd
+1465459126
+4
+# storage
+db|8bitCPU.(6).cnf
+db|8bitCPU.(6).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+pc:inst17
+}
+# end
+# entity
+reg
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg.vhd
+1465459136
+4
+# storage
+db|8bitCPU.(7).cnf
+db|8bitCPU.(7).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+reg:inst6
+reg:inst7
+reg:inst8
+reg:inst9
+}
+# end
+# entity
+reg_mux
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_mux.vhd
+1465508562
+4
+# storage
+db|8bitCPU.(8).cnf
+db|8bitCPU.(8).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+reg_mux:inst5
+}
+# end
+# entity
+t1
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+t1.vhd
+1465459158
+4
+# storage
+db|8bitCPU.(9).cnf
+db|8bitCPU.(9).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+t1:inst15
+}
+# end
+# entity
+reg_testa
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_testa.vhd
+1465517790
+4
+# storage
+db|8bitCPU.(14).cnf
+db|8bitCPU.(14).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+reg_testa:inst20
+}
+# end
+# entity
+flag_reg
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+flag_reg.vhd
+1465459054
+4
+# storage
+db|8bitCPU.(2).cnf
+db|8bitCPU.(2).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+flag_reg:inst1
+}
+# end
+# entity
+t2
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+t2.vhd
+1465459568
+4
+# storage
+db|8bitCPU.(11).cnf
+db|8bitCPU.(11).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+t2:inst14
+}
+# end
+# entity
+reg_out
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_out.vhd
+1465518288
+4
+# storage
+db|8bitCPU.(17).cnf
+db|8bitCPU.(17).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+reg_out:inst19
+}
+# end
+# entity
+reg_testb
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+reg_testb.vhd
+1466526598
+4
+# storage
+db|8bitCPU.(13).cnf
+db|8bitCPU.(13).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+reg_testb:inst21
+}
+# end
+# entity
+ir
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+ir.vhd
+1466586836
+4
+# storage
+db|8bitCPU.(1).cnf
+db|8bitCPU.(1).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+ir:inst13
+}
+# end
+# entity
+bus_mux
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+bus_mux.vhd
+1466586758
+4
+# storage
+db|8bitCPU.(10).cnf
+db|8bitCPU.(10).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+bus_mux:inst10
+}
+# end
+# entity
+ar
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+ar.vhd
+1466587390
+4
+# storage
+db|8bitCPU.(16).cnf
+db|8bitCPU.(16).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+ar:inst16
+}
+# end
+# entity
+t3
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+t3.vhd
+1466618510
+4
+# storage
+db|8bitCPU.(18).cnf
+db|8bitCPU.(18).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+t3:inst18
+}
+# end
+# entity
+8bitCPU
+# case_insensitive
+# source_file
+8bitCPU.bdf
+1466618764
+23
+# storage
+db|8bitCPU.(0).cnf
+db|8bitCPU.(0).cnf
+# hierarchies {
+|
+}
+# end
+# entity
+controller
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+controller.vhd
+1467797940
+4
+# storage
+db|8bitCPU.(4).cnf
+db|8bitCPU.(4).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+controller:inst11
+}
+# end
+# entity
+timer
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+timer.vhd
+1466586756
+4
+# storage
+db|8bitCPU.(5).cnf
+db|8bitCPU.(5).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+timer:inst12
+}
+# end
+# entity
+alu
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+alu.vhd
+1467802731
+4
+# storage
+db|8bitCPU.(3).cnf
+db|8bitCPU.(3).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+alu:inst
+}
+# end
+# entity
+dram
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+dram.vhd
+1467814548
+4
+# storage
+db|8bitCPU.(12).cnf
+db|8bitCPU.(12).cnf
+# internal_option {
+ADD_PASS_THROUGH_LOGIC_TO_INFERRED_RAMS
+ON
+AUTO_RESOURCE_SHARING
+OFF
+}
+# hierarchies {
+dram:inst2
+}
+# end
+# complete
+

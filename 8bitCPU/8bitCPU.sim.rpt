@@ -1,0 +1,513 @@
+Simulator report for 8bitCPU
+Wed Jul 06 22:55:05 2016
+Version 5.0 Build 148 04/26/2005 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Simulator INI Usage
+  6. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2005 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic       
+functions, and any output files any of the foregoing           
+(including device programming or simulation files), and any    
+associated documentation or information are expressly subject  
+to the terms and conditions of the Altera Program License      
+Subscription Agreement, Altera MegaCore Function License       
+Agreement, or other applicable license agreement, including,   
+without limitation, that your use is for the sole purpose of   
+programming logic devices manufactured by Altera and sold by   
+Altera or its authorized distributors.  Please refer to the    
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 50.0 us      ;
+; Simulation Netlist Size     ; 9975 nodes   ;
+; Simulation Coverage         ;      62.42 % ;
+; Total Number of Transitions ; 10658593     ;
++-----------------------------+--------------+
+
+
++--------------------------------------------------------------------+
+; Simulator Settings                                                 ;
++-------------------------------------------------------+------------+
+; Option                                                ; Setting    ;
++-------------------------------------------------------+------------+
+; Simulation mode                                       ; Functional ;
+; Start time                                            ; 0ns        ;
+; Add pins automatically to simulation output waveforms ; On         ;
+; Check outputs                                         ; Off        ;
+; Report simulation coverage                            ; On         ;
+; Detect setup and hold time violations                 ; Off        ;
+; Detect glitches                                       ; Off        ;
+; Automatically save/load simulation netlist            ; Off        ;
+; Disable timing delays in Timing Simulation            ; Off        ;
+; Generate Signal Activity File                         ; Off        ;
++-------------------------------------------------------+------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 5.0 Build 148 04/26/2005 SJ Full Version
+    Info: Processing started: Wed Jul 06 22:54:58 2016
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off 8bitCPU -c 8bitCPU
+Warning: Wrong node type for node "data_bus[7]~result" in vector source file. Design node is of type Output, but signal in vector source file is of type Buried
+Warning: Wrong node type for node "data_bus[6]~result" in vector source file. Design node is of type Output, but signal in vector source file is of type Buried
+Warning: Wrong node type for node "data_bus[5]~result" in vector source file. Design node is of type Output, but signal in vector source file is of type Buried
+Warning: Wrong node type for node "data_bus[4]~result" in vector source file. Design node is of type Output, but signal in vector source file is of type Buried
+Warning: Wrong node type for node "data_bus[3]~result" in vector source file. Design node is of type Output, but signal in vector source file is of type Buried
+Warning: Wrong node type for node "data_bus[2]~result" in vector source file. Design node is of type Output, but signal in vector source file is of type Buried
+Warning: Wrong node type for node "data_bus[1]~result" in vector source file. Design node is of type Output, but signal in vector source file is of type Buried
+Warning: Wrong node type for node "data_bus[0]~result" in vector source file. Design node is of type Output, but signal in vector source file is of type Buried
+Warning: Can't find signal in vector source file for input pin "|8bitCPU|data_bus[15]"
+Warning: Can't find signal in vector source file for input pin "|8bitCPU|data_bus[14]"
+Warning: Can't find signal in vector source file for input pin "|8bitCPU|data_bus[13]"
+Warning: Can't find signal in vector source file for input pin "|8bitCPU|data_bus[12]"
+Warning: Can't find signal in vector source file for input pin "|8bitCPU|data_bus[11]"
+Warning: Can't find signal in vector source file for input pin "|8bitCPU|data_bus[10]"
+Warning: Can't find signal in vector source file for input pin "|8bitCPU|data_bus[9]"
+Warning: Can't find signal in vector source file for input pin "|8bitCPU|data_bus[8]"
+Warning: Found logic contention at time 65.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 65.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 65.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 65.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 65.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 65.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 65.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 65.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 165.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 165.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 165.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 165.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 165.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 165.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 165.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 165.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 225.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 225.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 225.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 225.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 225.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 225.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 225.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 225.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 285.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 285.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 285.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 285.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 285.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 285.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 285.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 285.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 405.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 405.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 405.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 405.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 405.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 405.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 405.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 405.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 525.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 525.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 525.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 525.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 525.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 525.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 525.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 525.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 645.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 645.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 645.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 645.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 645.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 645.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 645.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 645.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 705.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 705.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 705.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 705.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 705.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 705.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 705.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 705.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 765.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 765.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 765.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 765.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 765.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 765.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 765.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 765.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 885.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 885.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 885.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 885.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 885.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 885.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 885.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 885.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 985.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 985.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 985.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 985.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 985.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 985.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 985.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 985.0 ns on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 1.09 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 1.09 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 1.09 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 1.09 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Found logic contention at time 1.09 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[12]" has logic level of X
+    Info: Node "t3:inst18|output[12]" has logic level of Z
+    Info: Node "dram:inst2|data[12]$latch" has logic level of 0
+Warning: Found logic contention at time 1.09 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[13]" has logic level of X
+    Info: Node "t3:inst18|output[13]" has logic level of Z
+    Info: Node "dram:inst2|data[13]$latch" has logic level of 0
+Warning: Found logic contention at time 1.09 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[14]" has logic level of X
+    Info: Node "t3:inst18|output[14]" has logic level of Z
+    Info: Node "dram:inst2|data[14]$latch" has logic level of 0
+Warning: Found logic contention at time 1.09 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[15]" has logic level of X
+    Info: Node "t3:inst18|output[15]" has logic level of Z
+    Info: Node "dram:inst2|data[15]$latch" has logic level of 0
+Warning: Found logic contention at time 1.15 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[8]" has logic level of X
+    Info: Node "t3:inst18|output[8]" has logic level of Z
+    Info: Node "dram:inst2|data[8]$latch" has logic level of 0
+Warning: Found logic contention at time 1.15 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[9]" has logic level of X
+    Info: Node "t3:inst18|output[9]" has logic level of Z
+    Info: Node "dram:inst2|data[9]$latch" has logic level of 0
+Warning: Found logic contention at time 1.15 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[10]" has logic level of X
+    Info: Node "t3:inst18|output[10]" has logic level of Z
+    Info: Node "dram:inst2|data[10]$latch" has logic level of 0
+Warning: Found logic contention at time 1.15 us on bus node "|8bitCPU|data_bus"
+    Info: Node "data_bus[11]" has logic level of X
+    Info: Node "t3:inst18|output[11]" has logic level of Z
+    Info: Node "dram:inst2|data[11]$latch" has logic level of 0
+Warning: Truncated list of logic contention messages
+Info: Simulation coverage is      62.42 %
+Info: Number of transitions in simulation is 10658593
+Info: Quartus II Simulator was successful. 0 errors, 117 warnings
+    Info: Processing ended: Wed Jul 06 22:55:05 2016
+    Info: Elapsed time: 00:00:07
+
+

@@ -1,0 +1,1667 @@
+Analysis & Synthesis report for 8bitCPU
+Wed Jul 06 22:15:53 2016
+Version 5.0 Build 148 04/26/2005 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |8bitCPU|timer:inst12|state
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Analysis & Synthesis Equations
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2005 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic       
+functions, and any output files any of the foregoing           
+(including device programming or simulation files), and any    
+associated documentation or information are expressly subject  
+to the terms and conditions of the Altera Program License      
+Subscription Agreement, Altera MegaCore Function License       
+Agreement, or other applicable license agreement, including,   
+without limitation, that your use is for the sole purpose of   
+programming logic devices manufactured by Altera and sold by   
+Altera or its authorized distributors.  Please refer to the    
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Wed Jul 06 22:15:53 2016    ;
+; Quartus II Version          ; 5.0 Build 148 04/26/2005 SJ Full Version ;
+; Revision Name               ; 8bitCPU                                  ;
+; Top-level Entity Name       ; 8bitCPU                                  ;
+; Family                      ; Cyclone                                  ;
+; Total logic elements        ; 1,321                                    ;
+; Total pins                  ; 51                                       ;
+; Total virtual pins          ; 0                                        ;
+; Total memory bits           ; 0                                        ;
+; Total PLLs                  ; 0                                        ;
++-----------------------------+------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                     ;
++--------------------------------------------------------------------+--------------+---------------+
+; Option                                                             ; Setting      ; Default Value ;
++--------------------------------------------------------------------+--------------+---------------+
+; Device                                                             ; EP1C6Q240C8  ;               ;
+; Top-level entity name                                              ; 8bitCPU      ; 8bitCPU       ;
+; Family name                                                        ; Cyclone      ; Stratix       ;
+; Use smart compilation                                              ; Off          ; Off           ;
+; Restructure Multiplexers                                           ; Auto         ; Auto          ;
+; Create Debugging Nodes for IP Cores                                ; off          ; off           ;
+; Preserve fewer node names                                          ; On           ; On            ;
+; Disable OpenCore Plus hardware evaluation                          ; Off          ; Off           ;
+; Verilog Version                                                    ; Verilog_2001 ; Verilog_2001  ;
+; VHDL Version                                                       ; VHDL93       ; VHDL93        ;
+; State Machine Processing                                           ; Auto         ; Auto          ;
+; Extract Verilog State Machines                                     ; On           ; On            ;
+; Extract VHDL State Machines                                        ; On           ; On            ;
+; Add Pass-Through Logic to Inferred RAMs                            ; On           ; On            ;
+; NOT Gate Push-Back                                                 ; On           ; On            ;
+; Power-Up Don't Care                                                ; On           ; On            ;
+; Remove Redundant Logic Cells                                       ; Off          ; Off           ;
+; Remove Duplicate Registers                                         ; On           ; On            ;
+; Ignore CARRY Buffers                                               ; Off          ; Off           ;
+; Ignore CASCADE Buffers                                             ; Off          ; Off           ;
+; Ignore GLOBAL Buffers                                              ; Off          ; Off           ;
+; Ignore ROW GLOBAL Buffers                                          ; Off          ; Off           ;
+; Ignore LCELL Buffers                                               ; Off          ; Off           ;
+; Ignore SOFT Buffers                                                ; On           ; On            ;
+; Limit AHDL Integers to 32 Bits                                     ; Off          ; Off           ;
+; Optimization Technique -- Cyclone                                  ; Balanced     ; Balanced      ;
+; Carry Chain Length -- Stratix/Stratix GX/Cyclone/MAX II/Cyclone II ; 70           ; 70            ;
+; Auto Carry Chains                                                  ; On           ; On            ;
+; Auto Open-Drain Pins                                               ; On           ; On            ;
+; Remove Duplicate Logic                                             ; On           ; On            ;
+; Perform WYSIWYG Primitive Resynthesis                              ; Off          ; Off           ;
+; Perform gate-level register retiming                               ; Off          ; Off           ;
+; Allow register retiming to trade off Tsu/Tco with Fmax             ; On           ; On            ;
+; Auto ROM Replacement                                               ; On           ; On            ;
+; Auto RAM Replacement                                               ; On           ; On            ;
+; Auto Shift Register Replacement                                    ; On           ; On            ;
+; Auto Clock Enable Replacement                                      ; On           ; On            ;
+; Allows Synchronous Control Signal Usage in Normal Mode Logic Cells ; On           ; On            ;
+; Auto RAM Block Balancing                                           ; On           ; On            ;
+; Auto Resource Sharing                                              ; Off          ; Off           ;
+; Allow Any RAM Size For Recognition                                 ; Off          ; Off           ;
+; Allow Any ROM Size For Recognition                                 ; Off          ; Off           ;
+; Allow Any Shift Register Size For Recognition                      ; Off          ; Off           ;
+; Maximum Number of M512 Memory Blocks                               ; -1           ; -1            ;
+; Maximum Number of M4K Memory Blocks                                ; -1           ; -1            ;
+; Maximum Number of M-RAM Memory Blocks                              ; -1           ; -1            ;
+; Ignore translate_off and translate_on Synthesis Directives         ; Off          ; Off           ;
+; Show Parameter Settings Tables in Synthesis Report                 ; On           ; On            ;
++--------------------------------------------------------------------+--------------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                    ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+
+; dram.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/dram.vhd       ;
+; 8bitCPU.bdf                      ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/8bitCPU.bdf    ;
+; alu.vhd                          ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/alu.vhd        ;
+; ar.vhd                           ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/ar.vhd         ;
+; bus_mux.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/bus_mux.vhd    ;
+; controller.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/controller.vhd ;
+; flag_reg.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/flag_reg.vhd   ;
+; ir.vhd                           ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/ir.vhd         ;
+; pc.vhd                           ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/pc.vhd         ;
+; reg.vhd                          ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/reg.vhd        ;
+; reg_testa.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/reg_testa.vhd  ;
+; reg_testb.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/reg_testb.vhd  ;
+; reg_mux.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/reg_mux.vhd    ;
+; reg_out.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/reg_out.vhd    ;
+; t1.vhd                           ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/t1.vhd         ;
+; t2.vhd                           ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/t2.vhd         ;
+; t3.vhd                           ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/t3.vhd         ;
+; timer.vhd                        ; yes             ; User VHDL File                     ; C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/timer.vhd      ;
++----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------+
+
+
++----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary        ;
++-----------------------------------+----------------+
+; Resource                          ; Usage          ;
++-----------------------------------+----------------+
+; Total logic elements              ; 1321           ;
+; Total combinational functions     ; 1256           ;
+;     -- Total 4-input functions    ; 1079           ;
+;     -- Total 3-input functions    ; 121            ;
+;     -- Total 2-input functions    ; 48             ;
+;     -- Total 1-input functions    ; 7              ;
+;     -- Total 0-input functions    ; 1              ;
+; Combinational cells for routing   ; 0              ;
+; Total registers                   ; 80             ;
+; Total logic cells in carry chains ; 41             ;
+; I/O pins                          ; 51             ;
+; Maximum fan-out node              ; ar:inst16|q[4] ;
+; Maximum fan-out                   ; 182            ;
+; Total fan-out                     ; 5143           ;
+; Average fan-out                   ; 3.75           ;
++-----------------------------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                              ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+----------------------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Full Hierarchy Name        ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+----------------------------+
+; |8bitCPU                   ; 1321 (0)    ; 80           ; 0           ; 51   ; 0            ; 1241 (0)     ; 65 (0)            ; 15 (0)           ; 41 (0)          ; |8bitCPU                   ;
+;    |alu:inst|              ; 90 (90)     ; 0            ; 0           ; 0    ; 0            ; 90 (90)      ; 0 (0)             ; 0 (0)            ; 41 (41)         ; |8bitCPU|alu:inst          ;
+;    |ar:inst16|             ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 8 (8)            ; 0 (0)           ; |8bitCPU|ar:inst16         ;
+;    |bus_mux:inst10|        ; 63 (63)     ; 0            ; 0           ; 0    ; 0            ; 63 (63)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|bus_mux:inst10    ;
+;    |controller:inst11|     ; 66 (66)     ; 0            ; 0           ; 0    ; 0            ; 66 (66)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|controller:inst11 ;
+;    |dram:inst2|            ; 944 (944)   ; 0            ; 0           ; 0    ; 0            ; 944 (944)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|dram:inst2        ;
+;    |flag_reg:inst1|        ; 8 (8)       ; 4            ; 0           ; 0    ; 0            ; 4 (4)        ; 1 (1)             ; 3 (3)            ; 0 (0)           ; |8bitCPU|flag_reg:inst1    ;
+;    |ir:inst13|             ; 9 (9)       ; 8            ; 0           ; 0    ; 0            ; 1 (1)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|ir:inst13         ;
+;    |pc:inst17|             ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|pc:inst17         ;
+;    |reg:inst6|             ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|reg:inst6         ;
+;    |reg:inst7|             ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|reg:inst7         ;
+;    |reg:inst8|             ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|reg:inst8         ;
+;    |reg:inst9|             ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|reg:inst9         ;
+;    |reg_mux:inst5|         ; 4 (4)       ; 0            ; 0           ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|reg_mux:inst5     ;
+;    |reg_out:inst19|        ; 65 (65)     ; 0            ; 0           ; 0    ; 0            ; 65 (65)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|reg_out:inst19    ;
+;    |reg_testa:inst20|      ; 6 (6)       ; 6            ; 0           ; 0    ; 0            ; 0 (0)        ; 6 (6)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|reg_testa:inst20  ;
+;    |reg_testb:inst21|      ; 8 (8)       ; 8            ; 0           ; 0    ; 0            ; 0 (0)        ; 8 (8)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|reg_testb:inst21  ;
+;    |t1:inst15|             ; 1 (1)       ; 0            ; 0           ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; |8bitCPU|t1:inst15         ;
+;    |timer:inst12|          ; 9 (9)       ; 6            ; 0           ; 0    ; 0            ; 3 (3)        ; 2 (2)             ; 4 (4)            ; 0 (0)           ; |8bitCPU|timer:inst12      ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+----------------------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------+
+; State Machine - |8bitCPU|timer:inst12|state                                ;
++----------+----------+----------+----------+----------+----------+----------+
+; Name     ; state.s5 ; state.s4 ; state.s3 ; state.s2 ; state.s1 ; state.s0 ;
++----------+----------+----------+----------+----------+----------+----------+
+; state.s0 ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ;
+; state.s1 ; 0        ; 0        ; 0        ; 0        ; 1        ; 1        ;
+; state.s2 ; 0        ; 0        ; 0        ; 1        ; 0        ; 1        ;
+; state.s3 ; 0        ; 0        ; 1        ; 0        ; 0        ; 1        ;
+; state.s4 ; 0        ; 1        ; 0        ; 0        ; 0        ; 1        ;
+; state.s5 ; 1        ; 0        ; 0        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+----------+----------+
+
+
++-----------------------------------------------------+
+; User-Specified and Inferred Latches                 ;
++-----------------------------------------------+-----+
+; Latch Name                                    ;     ;
++-----------------------------------------------+-----+
+; controller:inst11|wr                          ;     ;
+; controller:inst11|alu_in_sel[2]               ;     ;
+; controller:inst11|sour_reg[0]                 ;     ;
+; controller:inst11|sour_reg[1]                 ;     ;
+; controller:inst11|offset[3]                   ;     ;
+; controller:inst11|alu_in_sel[0]               ;     ;
+; controller:inst11|alu_in_sel[1]               ;     ;
+; controller:inst11|dest_reg[0]                 ;     ;
+; controller:inst11|dest_reg[1]                 ;     ;
+; controller:inst11|alu_func[0]                 ;     ;
+; controller:inst11|alu_func[2]                 ;     ;
+; controller:inst11|alu_func[1]                 ;     ;
+; controller:inst11|offset[2]                   ;     ;
+; controller:inst11|offset[1]                   ;     ;
+; controller:inst11|offset[0]                   ;     ;
+; controller:inst11|sst[1]                      ;     ;
+; controller:inst11|sst[0]                      ;     ;
+; controller:inst11|sci[1]                      ;     ;
+; controller:inst11|sci[0]                      ;     ;
+; controller:inst11|rec[1]                      ;     ;
+; controller:inst11|rec[0]                      ;     ;
+; controller:inst11|alu_out_sel[0]              ;     ;
+; controller:inst11|alu_out_sel[1]              ;     ;
+; dram:inst2|data[7]$latch                      ;     ;
+; dram:inst2|data[6]$latch                      ;     ;
+; dram:inst2|data[5]$latch                      ;     ;
+; dram:inst2|data[4]$latch                      ;     ;
+; dram:inst2|data[3]$latch                      ;     ;
+; dram:inst2|data[2]$latch                      ;     ;
+; dram:inst2|data[1]$latch                      ;     ;
+; dram:inst2|data[0]$latch                      ;     ;
+; dram:inst2|data[15]$latch                     ;     ;
+; dram:inst2|data[14]$latch                     ;     ;
+; dram:inst2|data[13]$latch                     ;     ;
+; dram:inst2|data[12]$latch                     ;     ;
+; dram:inst2|data[11]$latch                     ;     ;
+; dram:inst2|data[10]$latch                     ;     ;
+; dram:inst2|data[9]$latch                      ;     ;
+; dram:inst2|data[8]$latch                      ;     ;
+; dram:inst2|mem[6][7]                          ;     ;
+; dram:inst2|mem[10][7]                         ;     ;
+; dram:inst2|mem[2][7]                          ;     ;
+; dram:inst2|mem[14][7]                         ;     ;
+; dram:inst2|mem[20][7]                         ;     ;
+; dram:inst2|mem[24][7]                         ;     ;
+; dram:inst2|mem[16][7]                         ;     ;
+; dram:inst2|mem[28][7]                         ;     ;
+; dram:inst2|mem[4][7]                          ;     ;
+; dram:inst2|mem[8][7]                          ;     ;
+; dram:inst2|mem[0][7]                          ;     ;
+; dram:inst2|mem[12][7]                         ;     ;
+; dram:inst2|mem[26][7]                         ;     ;
+; dram:inst2|mem[22][7]                         ;     ;
+; dram:inst2|mem[18][7]                         ;     ;
+; dram:inst2|mem[30][7]                         ;     ;
+; dram:inst2|mem[19][7]                         ;     ;
+; dram:inst2|mem[21][7]                         ;     ;
+; dram:inst2|mem[17][7]                         ;     ;
+; dram:inst2|mem[23][7]                         ;     ;
+; dram:inst2|mem[11][7]                         ;     ;
+; dram:inst2|mem[13][7]                         ;     ;
+; dram:inst2|mem[9][7]                          ;     ;
+; dram:inst2|mem[15][7]                         ;     ;
+; dram:inst2|mem[3][7]                          ;     ;
+; dram:inst2|mem[5][7]                          ;     ;
+; dram:inst2|mem[1][7]                          ;     ;
+; dram:inst2|mem[7][7]                          ;     ;
+; dram:inst2|mem[27][7]                         ;     ;
+; dram:inst2|mem[29][7]                         ;     ;
+; dram:inst2|mem[25][7]                         ;     ;
+; dram:inst2|mem[31][7]                         ;     ;
+; dram:inst2|mem[18][6]                         ;     ;
+; dram:inst2|mem[20][6]                         ;     ;
+; dram:inst2|mem[16][6]                         ;     ;
+; dram:inst2|mem[22][6]                         ;     ;
+; dram:inst2|mem[10][6]                         ;     ;
+; dram:inst2|mem[12][6]                         ;     ;
+; dram:inst2|mem[8][6]                          ;     ;
+; dram:inst2|mem[14][6]                         ;     ;
+; dram:inst2|mem[2][6]                          ;     ;
+; dram:inst2|mem[4][6]                          ;     ;
+; dram:inst2|mem[0][6]                          ;     ;
+; dram:inst2|mem[6][6]                          ;     ;
+; dram:inst2|mem[26][6]                         ;     ;
+; dram:inst2|mem[28][6]                         ;     ;
+; dram:inst2|mem[24][6]                         ;     ;
+; dram:inst2|mem[30][6]                         ;     ;
+; dram:inst2|mem[25][6]                         ;     ;
+; dram:inst2|mem[19][6]                         ;     ;
+; dram:inst2|mem[17][6]                         ;     ;
+; dram:inst2|mem[27][6]                         ;     ;
+; dram:inst2|mem[13][6]                         ;     ;
+; dram:inst2|mem[7][6]                          ;     ;
+; dram:inst2|mem[5][6]                          ;     ;
+; dram:inst2|mem[15][6]                         ;     ;
+; dram:inst2|mem[9][6]                          ;     ;
+; dram:inst2|mem[3][6]                          ;     ;
+; dram:inst2|mem[1][6]                          ;     ;
+; dram:inst2|mem[11][6]                         ;     ;
+; dram:inst2|mem[29][6]                         ;     ;
+; Number of user-specified and inferred latches ; 551 ;
++-----------------------------------------------+-----+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 80    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 2     ;
+; Number of registers using Asynchronous Clear ; 80    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 59    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |8bitCPU|ar:inst16|q[7]             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |8bitCPU|controller:inst11|Mux~73   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1610   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1559   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1496   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1439   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1385   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1340   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1319   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1235   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1208   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1136   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1075   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~1043   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~992    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~926    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~890    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~863    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~785    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~718    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~704    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~616    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~575    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~521    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~488    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~419    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~392    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~326    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~302    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~215    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~200    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~125    ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~92     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |8bitCPU|dram:inst2|process0~32     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |8bitCPU|alu:inst|add~0             ;
+; 8:1                ; 6 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; No         ; |8bitCPU|alu:inst|alu_out[1]        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |8bitCPU|alu:inst|add~0             ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |8bitCPU|bus_mux:inst10|alu_sr[3]   ;
+; 32:1               ; 16 bits   ; 336 LEs       ; 336 LEs              ; 0 LEs                  ; No         ; |8bitCPU|dram:inst2|Mux~7           ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |8bitCPU|bus_mux:inst10|alu_sr[0]   ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |8bitCPU|bus_mux:inst10|alu_dr[7]   ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; No         ; |8bitCPU|controller:inst11|Mux~24   ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; No         ; |8bitCPU|controller:inst11|Mux~14   ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |8bitCPU|reg_out:inst19|reg_data[7] ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |8bitCPU|reg_out:inst19|reg_data[6] ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |8bitCPU|controller:inst11|Mux~42   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+
+
++--------------------------------+
+; Analysis & Synthesis Equations ;
++--------------------------------+
+The equations can be found in C:/Users/Kelvin/Desktop/8位CPU代码（已完成，未修改指令）/8bitCPU/8bitCPU.map.eqn.
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 5.0 Build 148 04/26/2005 SJ Full Version
+    Info: Processing started: Wed Jul 06 22:15:48 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off 8bitCPU -c 8bitCPU
+Info: Found 2 design units, including 1 entities, in source file dram.vhd
+    Info: Found design unit 1: dram-b_dram
+    Info: Found entity 1: dram
+Info: Found 1 design units, including 1 entities, in source file 8bitCPU.bdf
+    Info: Found entity 1: 8bitCPU
+Info: Found 2 design units, including 1 entities, in source file alu.vhd
+    Info: Found design unit 1: alu-behave
+    Info: Found entity 1: alu
+Info: Found 2 design units, including 1 entities, in source file ar.vhd
+    Info: Found design unit 1: ar-behave
+    Info: Found entity 1: ar
+Info: Found 2 design units, including 1 entities, in source file bus_mux.vhd
+    Info: Found design unit 1: bus_mux-behave
+    Info: Found entity 1: bus_mux
+Info: Found 2 design units, including 1 entities, in source file controller.vhd
+    Info: Found design unit 1: controller-behave
+    Info: Found entity 1: controller
+Info: Found 2 design units, including 1 entities, in source file flag_reg.vhd
+    Info: Found design unit 1: flag_reg-behave
+    Info: Found entity 1: flag_reg
+Info: Found 2 design units, including 1 entities, in source file ir.vhd
+    Info: Found design unit 1: ir-behave
+    Info: Found entity 1: ir
+Info: Found 2 design units, including 1 entities, in source file pc.vhd
+    Info: Found design unit 1: pc-behave
+    Info: Found entity 1: pc
+Info: Found 2 design units, including 1 entities, in source file reg.vhd
+    Info: Found design unit 1: reg-behave
+    Info: Found entity 1: reg
+Info: Found 2 design units, including 1 entities, in source file reg_testa.vhd
+    Info: Found design unit 1: reg_testa-behave
+    Info: Found entity 1: reg_testa
+Info: Found 2 design units, including 1 entities, in source file reg_testb.vhd
+    Info: Found design unit 1: reg_testb-behave
+    Info: Found entity 1: reg_testb
+Info: Found 2 design units, including 1 entities, in source file reg_mux.vhd
+    Info: Found design unit 1: reg_mux-behave
+    Info: Found entity 1: reg_mux
+Info: Found 2 design units, including 1 entities, in source file reg_out.vhd
+    Info: Found design unit 1: reg_out-behave
+    Info: Found entity 1: reg_out
+Info: Found 2 design units, including 1 entities, in source file t1.vhd
+    Info: Found design unit 1: t1-behave
+    Info: Found entity 1: t1
+Info: Found 2 design units, including 1 entities, in source file t2.vhd
+    Info: Found design unit 1: t2-behave
+    Info: Found entity 1: t2
+Info: Found 2 design units, including 1 entities, in source file t3.vhd
+    Info: Found design unit 1: t3-behave
+    Info: Found entity 1: t3
+Info: Found 2 design units, including 1 entities, in source file timer.vhd
+    Info: Found design unit 1: timer-behave
+    Info: Found entity 1: timer
+Info: Elaborating entity "8bitCPU" for the top level hierarchy
+Info: Elaborating entity "flag_reg" for hierarchy "flag_reg:inst1"
+Info: Elaborating entity "alu" for hierarchy "alu:inst"
+Info: VHDL Case Statement information at alu.vhd(96): OTHERS choice is never selected
+Info: Elaborating entity "t1" for hierarchy "t1:inst15"
+Info: Elaborating entity "controller" for hierarchy "controller:inst11"
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "dest_reg" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "dest_reg" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "sour_reg" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "sour_reg" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "offset" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "offset" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "sci" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "sci" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "sst" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "sst" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "alu_out_sel" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "alu_out_sel" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "alu_in_sel" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "alu_in_sel" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "alu_func" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "alu_func" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "wr" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "wr" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at controller.vhd(23): signal or variable "rec" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "rec" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Info: Elaborating entity "ir" for hierarchy "ir:inst13"
+Info: Elaborating entity "timer" for hierarchy "timer:inst12"
+Info: Elaborating entity "bus_mux" for hierarchy "bus_mux:inst10"
+Info: Elaborating entity "reg_mux" for hierarchy "reg_mux:inst5"
+Info: Elaborating entity "reg" for hierarchy "reg:inst6"
+Info: Elaborating entity "t2" for hierarchy "t2:inst14"
+Info: Elaborating entity "pc" for hierarchy "pc:inst17"
+Info: Elaborating entity "ar" for hierarchy "ar:inst16"
+Info: Elaborating entity "dram" for hierarchy "dram:inst2"
+Warning: VHDL Process Statement warning at dram.vhd(55): signal "mem" is read inside the Process Statement but isn't in the Process Statement's sensivitity list
+Warning: VHDL Process Statement warning at dram.vhd(16): signal or variable "mem" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "mem" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Warning: VHDL Process Statement warning at dram.vhd(16): signal or variable "data" may not be assigned a new value in every possible path through the Process Statement. Signal or variable "data" holds its previous value in every path with no new value assignment, which may create a combinational loop in the current design.
+Info: Elaborating entity "t3" for hierarchy "t3:inst18"
+Info: Elaborating entity "reg_out" for hierarchy "reg_out:inst19"
+Info: VHDL Case Statement information at reg_out.vhd(37): OTHERS choice is never selected
+Warning: VHDL Process Statement warning at reg_out.vhd(47): signal "reg_testb" is read inside the Process Statement but isn't in the Process Statement's sensivitity list
+Info: VHDL Case Statement information at reg_out.vhd(54): OTHERS choice is never selected
+Info: Elaborating entity "reg_testa" for hierarchy "reg_testa:inst20"
+Info: Elaborating entity "reg_testb" for hierarchy "reg_testb:inst21"
+Warning: Reduced register "reg_testa:inst20|q[3]" with stuck data_in port to stuck value GND
+Warning: Reduced register "reg_testa:inst20|q[7]" with stuck data_in port to stuck value GND
+Warning: Reduced register "ar:inst16|q[14]" with stuck data_in port to stuck value GND
+Warning: Reduced register "ar:inst16|q[13]" with stuck data_in port to stuck value GND
+Warning: Reduced register "ar:inst16|q[12]" with stuck data_in port to stuck value GND
+Warning: Reduced register "ar:inst16|q[11]" with stuck data_in port to stuck value GND
+Warning: Reduced register "ar:inst16|q[10]" with stuck data_in port to stuck value GND
+Warning: Reduced register "ar:inst16|q[9]" with stuck data_in port to stuck value GND
+Warning: Reduced register "ar:inst16|q[8]" with stuck data_in port to stuck value GND
+Warning: Reduced register "ar:inst16|q[15]" with stuck data_in port to stuck value GND
+Info: State machine "|8bitCPU|timer:inst12|state" contains 6 states and 0 state bits
+Info: Selected Auto state machine encoding method for state machine "|8bitCPU|timer:inst12|state"
+Info: Encoding result for state machine "|8bitCPU|timer:inst12|state"
+    Info: Completed encoding using 6 state bits
+        Info: Encoded state bit "timer:inst12|state.s5"
+        Info: Encoded state bit "timer:inst12|state.s4"
+        Info: Encoded state bit "timer:inst12|state.s3"
+        Info: Encoded state bit "timer:inst12|state.s2"
+        Info: Encoded state bit "timer:inst12|state.s1"
+        Info: Encoded state bit "timer:inst12|state.s0"
+    Info: State "|8bitCPU|timer:inst12|state.s0" uses code string "000000"
+    Info: State "|8bitCPU|timer:inst12|state.s1" uses code string "000011"
+    Info: State "|8bitCPU|timer:inst12|state.s2" uses code string "000101"
+    Info: State "|8bitCPU|timer:inst12|state.s3" uses code string "001001"
+    Info: State "|8bitCPU|timer:inst12|state.s4" uses code string "010001"
+    Info: State "|8bitCPU|timer:inst12|state.s5" uses code string "100001"
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~8 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~9 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~10 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~11 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~12 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~13 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~14 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~15 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~0 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~1 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~2 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~3 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~4 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~5 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~6 that it feeds
+Warning: Inserted an always-enabled tri-state buffer between logic and the tri-state bus data_bus~7 that it feeds
+Warning: Tri-state bus data_bus~8 is fed by always-enabled I/O buffer data_bus~16, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~9 is fed by always-enabled I/O buffer data_bus~17, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~10 is fed by always-enabled I/O buffer data_bus~18, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~11 is fed by always-enabled I/O buffer data_bus~19, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~12 is fed by always-enabled I/O buffer data_bus~20, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~13 is fed by always-enabled I/O buffer data_bus~21, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~14 is fed by always-enabled I/O buffer data_bus~22, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~15 is fed by always-enabled I/O buffer data_bus~23, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~0 is fed by always-enabled I/O buffer data_bus~24, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~1 is fed by always-enabled I/O buffer data_bus~25, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~2 is fed by always-enabled I/O buffer data_bus~26, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~3 is fed by always-enabled I/O buffer data_bus~27, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~4 is fed by always-enabled I/O buffer data_bus~28, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~5 is fed by always-enabled I/O buffer data_bus~29, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~6 is fed by always-enabled I/O buffer data_bus~30, deleting other fan-ins of the tri-state bus
+Warning: Tri-state bus data_bus~7 is fed by always-enabled I/O buffer data_bus~31, deleting other fan-ins of the tri-state bus
+Info: One or more bidirs are fed by always enabled tri-state buffers
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[7]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[6]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[5]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[4]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[3]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[2]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[1]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[0]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[15]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[14]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[13]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[12]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[11]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[10]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[9]" is moved to its source
+    Info: Fanout of permanently enabled tri-state buffer feeding bidir "data_bus[8]" is moved to its source
+Warning: Latch controller:inst11|wr has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output[1]
+Warning: Latch controller:inst11|alu_in_sel[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output[1]
+Warning: Latch controller:inst11|sour_reg[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output~1
+Warning: Latch controller:inst11|sour_reg[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output~1
+Warning: Latch controller:inst11|offset[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ir:inst13|q[7]
+Warning: Latch controller:inst11|alu_in_sel[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output~1
+Warning: Latch controller:inst11|alu_in_sel[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output[1]
+Warning: Latch controller:inst11|dest_reg[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output~1
+Warning: Latch controller:inst11|dest_reg[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output~1
+Warning: Latch controller:inst11|alu_func[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ir:inst13|q[7]
+Warning: Latch controller:inst11|alu_func[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ir:inst13|q[7]
+Warning: Latch controller:inst11|alu_func[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ir:inst13|q[7]
+Warning: Latch controller:inst11|offset[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ir:inst13|q[7]
+Warning: Latch controller:inst11|offset[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ir:inst13|q[7]
+Warning: Latch controller:inst11|offset[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ir:inst13|q[7]
+Warning: Latch controller:inst11|sst[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output[1]
+Warning: Latch controller:inst11|sst[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output[1]
+Warning: Latch controller:inst11|sci[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal ir:inst13|q[6]
+Warning: Latch controller:inst11|sci[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output[1]
+Warning: Latch controller:inst11|rec[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output~1
+Warning: Latch controller:inst11|rec[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output[1]
+Warning: Latch controller:inst11|alu_out_sel[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output[1]
+Warning: Latch controller:inst11|alu_out_sel[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal timer:inst12|output[1]
+Warning: Latch dram:inst2|mem[6][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][7] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][15] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][14] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][13] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][12] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][11] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][10] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][9] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[10][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[12][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[8][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[14][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[20][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[18][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[16][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[22][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[2][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[4][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[0][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[6][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[28][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[26][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[24][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[30][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[19][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[11][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[3][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[27][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[13][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[21][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[5][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[29][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[17][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[9][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[1][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[25][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[15][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[23][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[7][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: Latch dram:inst2|mem[31][8] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal controller:inst11|wr
+Warning: TRI or OPNDRN buffers permanently enabled
+    Warning: Node "data_bus~24"
+    Warning: Node "data_bus~25"
+    Warning: Node "data_bus~26"
+    Warning: Node "data_bus~27"
+    Warning: Node "data_bus~28"
+    Warning: Node "data_bus~29"
+    Warning: Node "data_bus~30"
+    Warning: Node "data_bus~31"
+    Warning: Node "data_bus~16"
+    Warning: Node "data_bus~17"
+    Warning: Node "data_bus~18"
+    Warning: Node "data_bus~19"
+    Warning: Node "data_bus~20"
+    Warning: Node "data_bus~21"
+    Warning: Node "data_bus~22"
+    Warning: Node "data_bus~23"
+Warning: Output pins are stuck at VCC or GND
+    Warning: Pin "address_bus[15]" stuck at GND
+    Warning: Pin "address_bus[14]" stuck at GND
+    Warning: Pin "address_bus[13]" stuck at GND
+    Warning: Pin "address_bus[12]" stuck at GND
+    Warning: Pin "address_bus[11]" stuck at GND
+    Warning: Pin "address_bus[10]" stuck at GND
+    Warning: Pin "address_bus[9]" stuck at GND
+    Warning: Pin "address_bus[8]" stuck at GND
+Info: Implemented 1372 device resources after synthesis - the final resource count might be different
+    Info: Implemented 6 input pins
+    Info: Implemented 29 output pins
+    Info: Implemented 16 bidirectional pins
+    Info: Implemented 1321 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 1152 warnings
+    Info: Processing ended: Wed Jul 06 22:15:53 2016
+    Info: Elapsed time: 00:00:05
+
+

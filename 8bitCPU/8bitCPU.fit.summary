@@ -1,0 +1,13 @@
+Flow Status : Successful - Wed Jul 06 22:15:58 2016
+Quartus II Version : 5.0 Build 148 04/26/2005 SJ Full Version
+Revision Name : 8bitCPU
+Top-level Entity Name : 8bitCPU
+Family : Cyclone
+Device : EP1C6Q240C8
+Timing Models : Final
+Met timing requirements : N/A
+Total logic elements : 1,263 / 5,980 ( 21 % )
+Total pins : 51 / 185 ( 27 % )
+Total virtual pins : 0
+Total memory bits : 0 / 92,160 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

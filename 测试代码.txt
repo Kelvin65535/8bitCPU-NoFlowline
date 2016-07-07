@@ -1,0 +1,14 @@
+; 8bit x 8bit multiplier
+;
+; ≤‚ ‘ºØ¥˙¬Î
+;
+MAIN: MVRD    R0,25
+      MVRD    R1,6
+      NEG     R0
+      NEG     R1
+      ROL     R0
+      ROR     R1
+      STC
+      RCL     R0
+      STC
+      RCR     R1
